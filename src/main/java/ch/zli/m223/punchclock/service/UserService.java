@@ -1,7 +1,6 @@
 package ch.zli.m223.punchclock.service;
 
 import ch.zli.m223.punchclock.domain.User;
-import io.quarkus.security.Authenticated;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -24,5 +23,9 @@ public class UserService {
     public List<User> getUsers() {
         var query = entityManager.createQuery("FROM User");
         return query.getResultList();
+    }
+
+    public User getUser(long id) {
+        return entityManager.find(User.class, id);
     }
 }
