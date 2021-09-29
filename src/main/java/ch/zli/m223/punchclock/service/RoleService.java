@@ -6,6 +6,7 @@ import ch.zli.m223.punchclock.domain.User;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @ApplicationScoped
@@ -23,6 +24,7 @@ public class RoleService {
         return entityManager.find(Role.class, id);
     }
 
+    @Transactional
     public Role createRole(Role role){
         entityManager.persist(role);
         return role;
