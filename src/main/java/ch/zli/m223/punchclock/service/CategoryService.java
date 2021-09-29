@@ -7,6 +7,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
+import java.util.List;
 
 @ApplicationScoped
 public class CategoryService {
@@ -18,6 +19,11 @@ public class CategoryService {
     public Category add(Category category) {
         entityManager.persist(category);
         return category;
+    }
+
+    public List<Category> getCategories() {
+        var query = entityManager.createQuery("FROM Category");
+        return query.getResultList();
     }
 
 }
