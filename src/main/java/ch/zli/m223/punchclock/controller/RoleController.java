@@ -18,7 +18,7 @@ public class RoleController {
 
     @DELETE
     @Path("/{id}")
-    public void deleteRole(@PathParam("id") long id){
+    public void deleteRole(@PathParam("id") long id) {
         roleService.deleteRole(id);
     }
 
@@ -40,6 +40,13 @@ public class RoleController {
     @Consumes(MediaType.APPLICATION_JSON)
     public Role createRole(Role role) {
         return roleService.createRole(role);
+    }
+
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Role editRole(Role role) {
+        return roleService.editRole(role);
     }
 
 }
