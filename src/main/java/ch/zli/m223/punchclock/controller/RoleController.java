@@ -5,10 +5,7 @@ import ch.zli.m223.punchclock.service.RoleService;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -30,6 +27,13 @@ public class RoleController {
     @Path("/{id}")
     public Role getRole(@PathParam("id") long id) {
         return roleService.getRole(id);
+    }
+
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Role createRole(Role role) {
+        return roleService.createRole(role);
     }
 
 }
