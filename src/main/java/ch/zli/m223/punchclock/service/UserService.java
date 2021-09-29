@@ -28,4 +28,6 @@ public class UserService {
 
     public User getUser(long id) { return entityManager.find(User.class, id); }
 
+    public User updateUser(User user) { return entityManager.merge(user); }
+
 }
