@@ -19,4 +19,8 @@ public class RoleService {
         return query.getResultList();
     }
 
+    public Role getRole(long id) {
+        return entityManager.find(Role.class, id);
+    }
+
 }
