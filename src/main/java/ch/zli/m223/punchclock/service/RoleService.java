@@ -30,4 +30,9 @@ public class RoleService {
         return role;
     }
 
+    @Transactional
+    public void deleteRole(Role role){
+        entityManager.remove(role);
+    }
+
 }
