@@ -42,5 +42,9 @@ public class UserController {
     @Consumes(MediaType.APPLICATION_JSON)
     public User updateUser(User user) { return userService.updateUser(user); }
 
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/{id}")
+    public void deleteUser(@PathParam("id") long id) { userService.deleteUser(id); }
 
 }
