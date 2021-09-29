@@ -42,4 +42,5 @@ public class UserController {
     @Consumes(MediaType.APPLICATION_JSON)
     public User updateUser(User user) { return userService.updateUser(user); }
 
+
 }
