@@ -29,4 +29,8 @@ public class CategoryService {
         return entityManager.find(Category.class, id);
     }
 
+    public void deleteCategory(long id) {
+        entityManager.remove(getCategory(id));
+    }
+
 }
