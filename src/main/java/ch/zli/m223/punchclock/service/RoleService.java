@@ -23,4 +23,9 @@ public class RoleService {
         return entityManager.find(Role.class, id);
     }
 
+    public Role createRole(Role role){
+        entityManager.persist(role);
+        return role;
+    }
+
 }
