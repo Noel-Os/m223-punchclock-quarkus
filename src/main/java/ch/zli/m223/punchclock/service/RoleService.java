@@ -31,8 +31,8 @@ public class RoleService {
     }
 
     @Transactional
-    public void deleteRole(Role role){
-        entityManager.remove(role);
+    public void deleteRole(long id){
+        entityManager.remove(id);
     }
 
 }
