@@ -29,4 +29,11 @@ public class CategoryController {
         return categoryService.getCategories();
     }
 
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Category getCategory(@PathParam("id") long id) {
+        return categoryService.getCategory(id);
+    }
+
 }
