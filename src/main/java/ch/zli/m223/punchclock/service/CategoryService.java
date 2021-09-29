@@ -1,7 +1,6 @@
 package ch.zli.m223.punchclock.service;
 
 import ch.zli.m223.punchclock.domain.Category;
-import io.quarkus.security.Authenticated;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -24,6 +23,10 @@ public class CategoryService {
     public List<Category> getCategories() {
         var query = entityManager.createQuery("FROM Category");
         return query.getResultList();
+    }
+
+    public Category getCategory(long id) {
+        return entityManager.find(Category.class, id);
     }
 
 }
