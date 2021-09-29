@@ -5,11 +5,9 @@ import ch.zli.m223.punchclock.service.CategoryService;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 @Path("/categories")
 @Tag(name = "Categories", description = "Handling of categories")
@@ -23,6 +21,12 @@ public class CategoryController {
     @Consumes(MediaType.APPLICATION_JSON)
     public Category createCategory(Category category) {
         return categoryService.add(category);
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Category> getCategories() {
+        return categoryService.getCategories();
     }
 
 }
