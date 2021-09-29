@@ -1,8 +1,6 @@
 package ch.zli.m223.punchclock.service;
 
 import ch.zli.m223.punchclock.domain.Role;
-import netscape.javascript.JSObject;
-import org.jose4j.json.internal.json_simple.JSONObject;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -32,11 +30,14 @@ public class RoleService {
 
     @Transactional
     public Role createRole(Role role) {
-
         entityManager.persist(role);
         return role;
     }
 
-
+    @Transactional
+    public Role editRole(Role role) {
+        entityManager.merge(role);
+        return role;
+    }
 
 }

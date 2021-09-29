@@ -22,7 +22,6 @@ public class RoleController {
         roleService.deleteRole(id);
     }
 
-
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Role> getRoles() {
@@ -42,6 +41,5 @@ public class RoleController {
     public Role createRole(Role role) {
         return roleService.createRole(role);
     }
-
 
 }
