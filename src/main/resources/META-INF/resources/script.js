@@ -46,17 +46,21 @@ const createCell = (text) => {
 
 const renderEntries = () => {
     const display = document.querySelector('#entryDisplay');
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = "delete";
+
     display.innerHTML = '';
     entries.forEach((entry) => {
         const row = document.createElement('tr');
         row.appendChild(createCell(entry.id));
         row.appendChild(createCell(new Date(entry.checkIn).toLocaleString()));
         row.appendChild(createCell(new Date(entry.checkOut).toLocaleString()));
+        row.appendChild(createCell(new document.createElement('button')));
         display.appendChild(row);
     });
 };
 
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function () {
     const createEntryForm = document.querySelector('#createEntryForm');
     createEntryForm.addEventListener('submit', createEntry);
     indexEntries();

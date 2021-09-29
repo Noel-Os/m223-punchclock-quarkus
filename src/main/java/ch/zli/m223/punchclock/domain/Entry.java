@@ -1,5 +1,7 @@
 package ch.zli.m223.punchclock.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -15,6 +17,12 @@ public class Entry {
 
     @Column(nullable = false)
     private LocalDateTime checkOut;
+
+    @ManyToOne
+    private Category category;
+
+    @ManyToOne
+    private User user;
 
     public Long getId() {
         return id;
@@ -39,4 +47,16 @@ public class Entry {
     public void setCheckOut(LocalDateTime checkOut) {
         this.checkOut = checkOut;
     }
+
+    public Category getCategory(){
+        return category;
+    }
+
+    public void setCategory(Category category){
+        this.category = category;
+    }
+
+    public User getUser() { return user; }
+
+    public void setUser(User user) { this.user = user; }
 }

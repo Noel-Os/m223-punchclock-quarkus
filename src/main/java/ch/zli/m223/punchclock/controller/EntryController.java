@@ -3,11 +3,7 @@ package ch.zli.m223.punchclock.controller;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
@@ -30,6 +26,13 @@ public class EntryController {
         return entryService.findAll();
     }
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/{id}")
+    public Entry getEntry(@PathParam("id") long id){
+        return entryService.getEntry(id);
+    }
+
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -38,4 +41,14 @@ public class EntryController {
        return entryService.createEntry(entry);
     }
 
+    @DELETE
+    @Path("/{id}")
+    public void delete(@PathParam("id") long id) {entryService.deleteEntry(id);}
+
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Entry updateEntry(Entry entry){
+        return entryService.update(entry);
+    }
 }
