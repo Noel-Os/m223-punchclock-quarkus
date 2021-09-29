@@ -36,4 +36,10 @@ public class RoleController {
         return roleService.createRole(role);
     }
 
+    @DELETE
+    @Path("/{id}")
+    public void deleteRole(@PathParam("id") long id){
+        roleService.deleteRole(id);
+    }
+
 }
