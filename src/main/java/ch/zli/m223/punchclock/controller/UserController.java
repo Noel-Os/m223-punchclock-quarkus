@@ -32,4 +32,9 @@ public class UserController {
     @Produces(MediaType.APPLICATION_JSON)
     public List<User> getUsers() { return  userService.getUsers(); }
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/{id}")
+    public User getUser(@PathParam("id") long id) { return userService.getUser(id); }
+
 }

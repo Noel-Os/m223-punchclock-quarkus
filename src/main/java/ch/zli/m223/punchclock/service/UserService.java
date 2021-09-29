@@ -1,5 +1,6 @@
 package ch.zli.m223.punchclock.service;
 
+import ch.zli.m223.punchclock.domain.Entry;
 import ch.zli.m223.punchclock.domain.User;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -25,7 +26,6 @@ public class UserService {
         return query.getResultList();
     }
 
-    public User getUser(long id) {
-        return entityManager.find(User.class, id);
-    }
+    public User getUser(long id) { return entityManager.find(User.class, id); }
+
 }

@@ -19,7 +19,7 @@ public class AuthController {
     @Produces(MediaType.TEXT_PLAIN)
     public String login(User user) {
         if (authenticationService.getUser(user)) {
-            return authenticationService.GenerateValidJwtToken(user.getUsername());
+            return authenticationService.GenerateValidJwtToken(user.getUsername(), user.getRole());
         } else {
             throw new NotAuthorizedException("Not authorized");
         }

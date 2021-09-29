@@ -8,6 +8,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
+import ch.zli.m223.punchclock.domain.Role;
 import ch.zli.m223.punchclock.domain.User;
 import io.smallrye.jwt.build.Jwt;
 import org.eclipse.microprofile.jwt.Claims;
@@ -30,11 +31,11 @@ public class AuthenticationService {
         return false;
     }
     
-    public String GenerateValidJwtToken(String username){
+    public String GenerateValidJwtToken(String username, Role role){
         String token =
             Jwt.issuer("https://zli.ch/issuer") 
-            .upn(username) 
-            .groups(new HashSet<>(Arrays.asList("User", "Admin"))) 
+            .upn(username)
+            .groups(new HashSet<>(Arrays.asList("User", "Admin")))
             .claim(Claims.birthdate.name(), "2001-07-13")
             .expiresIn(Duration.ofHours(1)) 
             .sign();
