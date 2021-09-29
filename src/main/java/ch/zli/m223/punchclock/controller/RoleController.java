@@ -16,6 +16,13 @@ public class RoleController {
     @Inject
     RoleService roleService;
 
+    @DELETE
+    @Path("/{id}")
+    public void deleteRole(@PathParam("id") long id){
+        roleService.deleteRole(id);
+    }
+
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Role> getRoles() {
@@ -36,10 +43,5 @@ public class RoleController {
         return roleService.createRole(role);
     }
 
-    @DELETE
-    @Path("/{id}")
-    public void deleteRole(@PathParam("id") long id){
-        roleService.deleteRole(id);
-    }
 
 }

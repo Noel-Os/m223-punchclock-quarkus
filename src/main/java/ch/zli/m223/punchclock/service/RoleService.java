@@ -1,7 +1,8 @@
 package ch.zli.m223.punchclock.service;
 
 import ch.zli.m223.punchclock.domain.Role;
-import ch.zli.m223.punchclock.domain.User;
+import netscape.javascript.JSObject;
+import org.jose4j.json.internal.json_simple.JSONObject;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -15,6 +16,11 @@ public class RoleService {
     @Inject
     EntityManager entityManager;
 
+    @Transactional
+    public void deleteRole(long id) {
+        entityManager.remove(getRole(id));
+    }
+
     public List<Role> getRoles() {
         var query = entityManager.createQuery("FROM Role");
         return query.getResultList();
@@ -25,14 +31,12 @@ public class RoleService {
     }
 
     @Transactional
-    public Role createRole(Role role){
+    public Role createRole(Role role) {
+
         entityManager.persist(role);
         return role;
     }
 
-    @Transactional
-    public void deleteRole(long id){
-        entityManager.remove(id);
-    }
+
 
 }
