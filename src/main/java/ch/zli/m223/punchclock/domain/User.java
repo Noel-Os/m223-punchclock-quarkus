@@ -18,7 +18,7 @@ public class User {
     @Column
     private String password;
 
-    @ManyToOne
+    @ManyToOne(optional = true)
     private Role role;
 
     @OneToMany(mappedBy = "user")

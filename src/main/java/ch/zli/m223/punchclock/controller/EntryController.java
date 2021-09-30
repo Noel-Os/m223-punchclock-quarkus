@@ -19,6 +19,10 @@ public class EntryController {
     @Inject
     EntryService entryService;
 
+    /**
+     *
+     * @return Entry list
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "List all Entries", description = "")
@@ -26,6 +30,11 @@ public class EntryController {
         return entryService.findAll();
     }
 
+    /**
+     *
+     * @param id
+     * @return Entry
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
@@ -33,6 +42,11 @@ public class EntryController {
         return entryService.getEntry(id);
     }
 
+    /**
+     *
+     * @param entry
+     * @return Entry
+     */
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -41,10 +55,19 @@ public class EntryController {
        return entryService.createEntry(entry);
     }
 
+    /**
+     *
+     * @param id
+     */
     @DELETE
     @Path("/{id}")
     public void delete(@PathParam("id") long id) {entryService.deleteEntry(id);}
 
+    /**
+     *
+     * @param entry
+     * @return Entry
+     */
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)

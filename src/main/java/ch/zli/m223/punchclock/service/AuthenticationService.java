@@ -15,16 +15,19 @@ public class AuthenticationService {
     @Inject
     private EntityManager entityManager;
 
-    public Boolean getUser(User user) {
-        var query = entityManager.createQuery("SELECT COUNT(*) FROM User u" +
-                " WHERE u.username=:username AND u.password=:password");
+    public User getUser(User user) {
+        var query = entityManager.createQuery("FROM User u" +
+               " WHERE u.username=:username AND u.password=:password");
+
         query.setParameter("username", user.getUsername());
         query.setParameter("password", user.getPassword());
-        var result = query.getSingleResult();
-        if ((long) result == 1) {
-            return true;
+
+        User result = (User) query.getSingleResult();
+
+        if (result != null) {
+            return result;
         }
-        return false;
+        return null;
     }
 
     public String GenerateValidJwtToken(String username, Role role) {

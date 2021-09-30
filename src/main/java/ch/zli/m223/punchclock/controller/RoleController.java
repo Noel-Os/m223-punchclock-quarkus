@@ -16,18 +16,31 @@ public class RoleController {
     @Inject
     RoleService roleService;
 
+    /**
+     *
+     * @param id
+     */
     @DELETE
     @Path("/{id}")
     public void deleteRole(@PathParam("id") long id) {
         roleService.deleteRole(id);
     }
 
+    /**
+     *
+     * @return Role list
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Role> getRoles() {
         return roleService.getRoles();
     }
 
+    /**
+     *
+     * @param id
+     * @return Role
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
@@ -35,6 +48,11 @@ public class RoleController {
         return roleService.getRole(id);
     }
 
+    /**
+     *
+     * @param role
+     * @return Role
+     */
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -42,6 +60,11 @@ public class RoleController {
         return roleService.createRole(role);
     }
 
+    /**
+     *
+     * @param role
+     * @return Role
+     */
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)

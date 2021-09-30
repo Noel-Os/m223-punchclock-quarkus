@@ -16,6 +16,11 @@ public class CategoryController {
     @Inject
     CategoryService categoryService;
 
+    /**
+     *
+     * @param category
+     * @return Category
+     */
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -23,12 +28,21 @@ public class CategoryController {
         return categoryService.add(category);
     }
 
+    /**
+     *
+     * @return Category list
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Category> getCategories() {
         return categoryService.getCategories();
     }
 
+    /**
+     *
+     * @param id
+     * @return Category
+     */
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -36,6 +50,10 @@ public class CategoryController {
         return categoryService.getCategory(id);
     }
 
+    /**
+     *
+     * @param id
+     */
     @DELETE
     @Path("/{id}")
     public void removeCategory(@PathParam("id") long id) {
