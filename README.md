@@ -1,11 +1,13 @@
 # M223 Punchclock
 
-Folgende Schritte sind notwendig um die Applikation zu erstellen und zu starten: 
-1. Stellen Sie sicher, dass OpenJDK 11 oder höher installiert und JAVA_HOME korrekt gesetzt ist.  
+Folgende Schritte sind notwendig um die Applikation zu erstellen und zu starten:
+
+1. Stellen Sie sicher, dass OpenJDK 11 oder höher installiert und JAVA_HOME korrekt gesetzt ist.
 2. Installieren Sie (falls noch nicht vorhanden) Apache Maven 3.8.1 oder höher
-3. Wechseln Sie auf der Kommandozeile in den Ordner dieser Appliation. 
-`cd m223-helloworld-quarkus/`
-4. Starten Sie die Applikation mit 
+3. Wechseln Sie auf der Kommandozeile in den Ordner dieser Appliation.
+   `cd m223-helloworld-quarkus/`
+4. Starten Sie die Applikation mit
+
 ```shell script
 ./mvnw compile quarkus:dev
 ```
@@ -14,8 +16,10 @@ Folgende Dienste stehen während der Ausführung im Profil dev zur Verfügung:
 
 Swagger API: http://localhost:8080/q/swagger-ui/
 
-H2 Console: http://localhost:8080/h2/ 
-Datenquelle: jdbc:h2:mem:punchclock
-Benutzername: zli
-Passwort: zli
+H2 Console: http://localhost:8080/h2/
+Datenquelle: jdbc:h2:mem:punchclock Benutzername: zli Passwort: zli
+
+Es gibt einen automatischen Datenimport beim starten des Programms dabei wird von jeder Entität mindestens etwas
+erstellt. Abweichungen gibt es so gut wie keine. Es wurden jedoch andere Variabelnamen sowie Methodennamen benutzt da
+ich diese besser fand. Es gibt einen default benutzer siehe Readme in PunchClock_UI
 
